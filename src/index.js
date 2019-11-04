@@ -11,24 +11,24 @@ import { rootSaga } from './rootSaga';
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducer,
-  { isLoading: false, isError: false, repositories: [] },
+  { isLoading: false, isError: false, todos: [] },
   applyMiddleware(sagaMiddleware)
 );
 
 sagaMiddleware.run(rootSaga);
 
-class Repositories extends React.Component {
+class FetchedTodos extends React.Component {
   componentDidMount() {
     const { getDataRequested } = this.props;
     getDataRequested();
   }
 
   render() {
-    const { isLoading, isError, repositories } = this.props;
+    const { isLoading, isError, todos } = this.props;
 
     return (
       <div>
-        {repositories.map((item, index) => {
+        {todos.map((item, index) => {
           return (<div key={index}>
             {item.title}
           </div>);
@@ -47,11 +47,11 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-Repositories = connect(mapStateToProps, mapDispatchToProps)(Repositories);
+FetchedTodos = connect(mapStateToProps, mapDispatchToProps)(FetchedTodos);
 
 render(
   <Provider store={store}>
-    <Repositories />
+    <FetchedTodos />
   </Provider>
   , document.getElementById('root')
 );

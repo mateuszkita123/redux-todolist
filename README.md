@@ -1,7 +1,7 @@
-# react-redux-example
-React Redux implementation example for the blog post purpose
+# react-redux-saga
+React Redux implementation for todo list
 
-To run the example:
+To run the app:
 
 ```
 npm install
