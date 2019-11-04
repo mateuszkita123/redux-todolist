@@ -7,12 +7,12 @@ class FetchedTodos extends React.Component {
       const { getDataRequested } = this.props;
       getDataRequested();
     }
-  
+    
     render() {
       const { isLoading, isError, todos } = this.props;
-  
+      
       return (
-        <div>
+        <div><button>Fetch task from "JSONPlaceholder"</button>
           {todos.map((item, index) => {
             return (<div key={index}>
               {item.title}
