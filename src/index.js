@@ -4,14 +4,13 @@ import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
-import { reducer } from './reducers/reducer';
+import reducer from './reducers/index';
 import { rootSaga } from './rootSaga';
 import App from './components/App'
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
   reducer,
-  { isLoading: false, isError: false, todos: [] },
   applyMiddleware(sagaMiddleware)
 );
 
