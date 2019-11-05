@@ -12,7 +12,7 @@ class FetchedTodos extends React.Component {
 
   render() {
     const { isLoading, isError, todos, getDataRequested } = this.props;
-    const activeButton = <button className="button fetch-button" onClick={getDataRequested}>Fetch task from "JSONPlaceholder"</button>;
+    const activeButton = <button className="button fetch-button" onClick={getDataRequested}><span>Fetch task from "JSONPlaceholder" </span></button>;
     const disabledButton = <button className="button fetch-button-disabled" disabled>Reached maximum number of tasks</button>
     return (
     <div>

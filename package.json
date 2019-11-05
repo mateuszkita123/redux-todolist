@@ -2,6 +2,9 @@
   "name": "react-redux-todolist",
   "version": "1.0.0",
   "description": "React Redux todo list app",
+  "dependencies": {
+    "webpack": "^1.13.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,7 +38,6 @@
     "redux": "^3.5.2",
     "redux-saga": "^0.14.3",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
   }
 }

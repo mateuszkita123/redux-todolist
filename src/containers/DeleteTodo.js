@@ -5,15 +5,15 @@ import {deleteTodo} from '../actions/';
 let DeleteTodo = ({id, completed, dispatch}) => {
   return (
     <span
-      className="todo-delete-item"
+      className="float-left red todo-delete-item"
       onClick={e => {
         e.preventDefault()
         if(completed) {
           dispatch(deleteTodo(id));
         }
       }}
-      className="float-left red">
-        <i className="fa fa-trash"></i>
+    >
+      <i className="fa fa-trash"></i>
     </span>
   )
 }

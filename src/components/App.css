@@ -84,11 +84,11 @@ span {
 .yellow {
     background: orange;
 }
-/* 
+
 li:hover span {
     width: 40px;
     opacity: 1.0;
-} */
+}
 
 input {
     font-size: 18px;
@@ -133,7 +133,7 @@ input:focus{
   color: #FFFFFF;
   text-align: center;
   font-size: 18px;
-  width: 100px;
+  width: auto;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -166,4 +166,9 @@ input:focus{
 
 .fetch-button {
     width: auto;
+}
+
+.fetch-button-disabled {
+    width: auto;
+    cursor: default;
 }
