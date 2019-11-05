@@ -1,34 +1,25 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class FetchedTodos extends React.Component {
   componentDidMount() {
-    const { getDataRequested } = this.props;
-    getDataRequested();
+    const { todos, getDataRequested } = this.props;
+    for(let i=todos.length; i < 10; i++) {
+      getDataRequested();
+    }
   }
 
   render() {
-    const { isLoading, isError, todos } = this.props;
+    const { isLoading, isError, todos, getDataRequested } = this.props;
+    const activeButton = <button onClick={getDataRequested}>Fetch task from "JSONPlaceholder"</button>;
+    const disabledButton = <button disabled>Reached maximum number of tasks</button>
     return (
     <div>
-      <button>Fetch task from "JSONPlaceholder"</button>
+      {todos.length < 10 ? activeButton : disabledButton }
     </div>
     );
   }
-  
-//   render() {
-//     const { isLoading, isError, todos } = this.props;
-//     return (
-//       <div><button>Fetch task from "JSONPlaceholder"</button>
-//         {todos.map((item, index) => {
-//           return (<div key={index}>
-//             {item.title}
-//           </div>);
-//         })}
-//       </div>
-//     );
-//   }
 }
 
 const mapStateToProps = (state) => {

@@ -3,8 +3,8 @@ import * as actions from '../actions';
 let nextTodoId = 0;
 
 const initialState = {
-  isLoading: false, 
-  isError: false, 
+  isLoading: false,
+  isError: false,
   todos: [{
     id: nextTodoId++,
     title: "Read a book about redux",
@@ -18,8 +18,6 @@ const initialState = {
 };
 
 const processData = (state = initialState, action) => {
-  console.log("PROCESS DATA state: ", state)
-  console.log("ACTION: ", action.type)
   switch (action.type) {
     case actions.GET_DATA_REQUESTED:
       return {
@@ -27,17 +25,34 @@ const processData = (state = initialState, action) => {
         isLoading: true
       };
     case actions.GET_DATA_DONE:
-        const newObj = Object.assign({}, state, {
-          todos: [
-            ...state.todos,
-            {
-              id: nextTodoId++,
-              title: action.payload.title,
-              completed: false
-            }
-          ]
+      if(typeof action.payload === "object") {
+        if(action.payload.length) {
+          let newArrAfterFetchingData = action.payload.map(item => {
+            const container = {};
+
+            container.id = nextTodoId++;
+            container.title = item.title;
+            container.completed = item.completed;
+
+            return container;
+          });
+          let newArrAfterMerge = state.todos.concat(newArrAfterFetchingData);
+          const newObj = Object.assign({}, state, {
+            todos: newArrAfterMerge
         })
         return newObj;
+      } else {
+        const singleObj = {};
+          singleObj.id = nextTodoId++;
+          singleObj.title = action.payload.title;
+          singleObj.completed = action.payload.completed;
+        return {
+          ...state,
+          todos: state.todos.concat(singleObj)
+        }
+      }} else {
+        return state
+      }
     case actions.GET_DATA_FAILED:
       return {
         ...state,
@@ -63,7 +78,6 @@ const processData = (state = initialState, action) => {
         return state
       };
     case actions.DELETE_TODO:
-      console.log("DELETING ELEMENT");
       let newArrAfterDelete = state.todos.filter(todo => todo.id !== action.id);
       return {
         ...state,
