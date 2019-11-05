@@ -5,7 +5,7 @@ import * as actions from '../actions';
 class FetchedTodos extends React.Component {
   componentDidMount() {
     const { todos, getDataRequested } = this.props;
-    for(let i=todos.length; i < 10; i++) {
+    for(let i=todos.length; i < 6; i++) {
       getDataRequested();
     }
   }
