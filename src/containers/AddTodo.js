@@ -18,7 +18,7 @@ let AddTodo = ({ todos, dispatch }) => {
         dispatch(addTodo(input.value))
         input.value = ''
       }}>
-        <h1>Todo List<button className="button plus" type="submit"><i className="fa fa-plus"></i></button></h1>
+        <h1>Todo List<button className="button button-plus" type="submit"><i className="fa fa-plus"></i></button></h1>
         <input ref={node => input = node} type="text" placeholder="Add new task..." />
         {todos.length < 10 ? activeAddTodo : disabledactiveAddTodo}
       </form>

@@ -41,9 +41,6 @@ h1 {
     font-weight: normal;
 }
 
-.plus {
-    float: right;
-}
 
 li {
     background: #fff;
@@ -60,11 +57,31 @@ span {
     height: 40px;
     text-align: center;
     color: white;
-    width: 40px;
+    width: 90px;
     display: inline-block;
     transition: 0.2s linear;
     opacity: 1;
 }
+
+span.todo-delete-item {
+    height: 40px;
+    width: 40px;
+}
+
+span.in-progress-item {
+    height: 40px;
+    width: 40px;
+}
+
+span.check-item {
+    height: 40px;
+    width: 40px;
+}
+/* 
+li:hover span {
+    width: 40px;
+    opacity: 1.0;
+} */
 
 .task-info {
   display: inline-block;
@@ -83,11 +100,6 @@ span {
 
 .yellow {
     background: orange;
-}
-
-li:hover span {
-    width: 40px;
-    opacity: 1.0;
 }
 
 input {
@@ -165,10 +177,17 @@ input:focus{
 }
 
 .fetch-button {
-    width: auto;
+    width: 300px;
 }
 
 .fetch-button-disabled {
-    width: auto;
+    width: 300px;
     cursor: default;
+}
+
+.button-plus {
+    font-size: 24px;
+    float: right;
+    margin: 0;
+    padding: 0 5px 0 5px;
 }
