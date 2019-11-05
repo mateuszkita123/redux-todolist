@@ -4,9 +4,8 @@ import {deleteTodo} from '../actions/';
 
 let DeleteTodo = ({id, completed, dispatch}) => {
   return (
-    <div className="todo-delete-item">
-      {completed ?
-      (<span
+    <span
+      className="todo-delete-item"
       onClick={e => {
         e.preventDefault()
         if(completed) {
@@ -15,8 +14,7 @@ let DeleteTodo = ({id, completed, dispatch}) => {
       }}
       className="float-left red">
         <i className="fa fa-trash"></i>
-      </span>) : ''}
-    </div>
+    </span>
   )
 }
 

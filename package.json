@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-example",
+  "name": "react-redux-todolist",
   "version": "1.0.0",
-  "description": "React Redux implementation example for the blog post purpose",
+  "description": "React Redux todo list app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

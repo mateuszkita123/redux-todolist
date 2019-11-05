@@ -7,12 +7,12 @@ const initialState = {
   isError: false,
   todos: [{
     id: nextTodoId++,
-    title: "Read a book about redux",
+    title: "learn hooks",
     completed: false
   },
   {
     id: nextTodoId++,
-    title: "Fix a computer",
+    title: "develop app",
     completed: false
   }]
 };
@@ -74,7 +74,6 @@ const processData = (state = initialState, action) => {
         return newObj;
       }
       else {
-        console.log("Too much tasks.");////////////////////////////////////////////
         return state
       };
     case actions.DELETE_TODO:
