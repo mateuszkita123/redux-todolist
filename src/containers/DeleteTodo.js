@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {deleteTodo} from '../actions/';
+import Todo from '../components/Todo';
 
 let DeleteTodo = ({id, completed, dispatch}) => {
   return (
@@ -9,11 +10,14 @@ let DeleteTodo = ({id, completed, dispatch}) => {
           e.preventDefault()
           if(completed) {
             dispatch(deleteTodo(id));
-            console.log(dispatch(deleteTodo(id)));
+            // console.log(id);
+            // console.log(dispatch(deleteTodo(id)));
           }
         }}>X</span>
       </div>
   )
 }
 
-export default DeleteTodo = connect()(DeleteTodo);
+DeleteTodo = connect()(DeleteTodo);
+
+export default DeleteTodo

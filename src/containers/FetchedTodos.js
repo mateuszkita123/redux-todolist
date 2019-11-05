@@ -42,4 +42,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default FetchedTodos = connect(mapStateToProps, mapDispatchToProps)(FetchedTodos);
+export default FetchedTodos = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FetchedTodos);

@@ -18,7 +18,7 @@ const initialState = {
 };
 
 const processData = (state = initialState, action) => {
-  console.log("PROCASS DATA state: ", state)
+  console.log("PROCESS DATA state: ", state)
   console.log("ACTION: ", action.type)
   switch (action.type) {
     case actions.GET_DATA_REQUESTED:
@@ -39,7 +39,8 @@ const processData = (state = initialState, action) => {
         })
         return newObj;
     case actions.GET_DATA_FAILED:
-      return { ...state,
+      return {
+        ...state,
         isLoading: false,
         isError: true
       }
@@ -62,16 +63,25 @@ const processData = (state = initialState, action) => {
         return state
       };
     case actions.DELETE_TODO:
-      return state.todos.filter(todo => todo.id !== action.id);
+      console.log("DELETING ELEMENT");
+      let newArrAfterDelete = state.todos.filter(todo => todo.id !== action.id);
+      return {
+        ...state,
+        todos: newArrAfterDelete
+      }
     case actions.TOGGLE_TODO:
-      console.log("TOGGLE_TODO state.todos: ", state.todos);
-      let newArr = state.todos.map(todo =>
+      let newArrAfterToggle = state.todos.map(todo =>
         (todo.id === action.id)
-          ? {...todo, completed: !todo.completed}
+          ? {
+            ...todo,
+            completed: !todo.completed
+          }
           : todo
       )
-      console.log("TOGGLE_TODO newArr: ", newArr);
-      return newArr
+      return { 
+        ...state,
+        todos: newArrAfterToggle
+      }
     default:
       return state;
   }

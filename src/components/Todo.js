@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import DeleteTodo from '../containers/DeleteTodo'
 
-const Todo = ({ onClick, completed, title }) => (
+const Todo = ({ id, onClick, completed, title }) => (
   <li
     onClick={onClick}
     style={{
@@ -9,10 +10,10 @@ const Todo = ({ onClick, completed, title }) => (
     }}
   >
     {title}, Status: {completed ? 'completed' : 'in progress'}
-    {/* <DeleteTodo
+    <DeleteTodo
       id={id}
       completed={completed}
-    /> */}
+    />
   </li>
 )
 
