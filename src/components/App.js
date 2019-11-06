@@ -6,7 +6,7 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 import Footer from './Footer'
 
 const App = () => (
-    <div>
+    <div className="App">
         <AddTodo />
         <FetchedTodos />
         <VisibleTodoList />

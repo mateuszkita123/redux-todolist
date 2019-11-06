@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-const disabledactiveAddTodo = <button disabled>Add Todo</button>
-const activeAddTodo = <button type="submit">Add Todo</button>
+const disabledactiveAddTodo = <button className="button button-add-disabled" disabled>Add Todo</button>
+const activeAddTodo = <button className="button" type="submit"><span>Add Todo </span></button>
 
 let AddTodo = ({ todos, dispatch }) => {
   let input;
@@ -19,7 +19,7 @@ let AddTodo = ({ todos, dispatch }) => {
         input.value = ''
       }}>
         <h1>Todo List<button className="button button-plus" type="submit"><i className="fa fa-plus"></i></button></h1>
-        <input ref={node => input = node} type="text" placeholder="Add new task..." />
+        <input ref={node => input = node} type="text" placeholder="Add new todo..." />
         {todos.length < 10 ? activeAddTodo : disabledactiveAddTodo}
       </form>
     </div>

@@ -15,7 +15,7 @@ class FetchedTodos extends React.Component {
     const activeButton = <button className="button fetch-button" onClick={getDataRequested}><span>Fetch task from "JSONPlaceholder" </span></button>;
     const disabledButton = <button className="button fetch-button-disabled" disabled>Reached maximum number of tasks</button>
     return (
-    <div>
+    <div className="fetch-container">
       {todos.length < 10 ? activeButton : disabledButton }
     </div>
     );
