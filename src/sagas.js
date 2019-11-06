@@ -6,8 +6,10 @@ let count = 0;
 
 export function* getData() {
   try {
-    count++;
-    // const response = yield fetch(`http://jsonplaceholder.typicode.com/todos?_start=${firstItem}&_limit=${limit}`);
+    if(count < 200)
+      count++;
+    else
+      count = 1;
     const response = yield fetch(`http://jsonplaceholder.typicode.com/todos/${count}`);
     const data = yield response.json();
     yield put(actions.getDataDone(data));
